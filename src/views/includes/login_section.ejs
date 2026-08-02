@@ -1,0 +1,36 @@
+<section id="login_section">
+  <div class="container">
+    <div>
+
+      <div class="hero">
+        <h1 class="hero_title">KOSHO</h1>
+        <p class="hero_subtitle">a dev club</p>
+      </div>
+
+      <form action="/api/login" class="form_login" method="POST">
+
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+        <label for="username" class="form_login_label">
+          <p>▶</p>
+          <input type="text" name="username" autocomplete="off" spellcheck="false" maxlength="50" placeholder="username">
+        </label>
+
+        <label for="password" class="form_login_label">
+          <p>▶</p>
+          <input type="password" name="password" autocomplete="off" spellcheck="false" maxlength="50" placeholder="password">
+        </label>
+
+        <p class="login_message"></p>
+
+        <div>
+          <button class="hover" type="submit">LOGIN</button>
+          <a href="/register" class="hover">register</a>
+          
+        </div>
+        <a href="/recover" class="hover">forgot my pass</a>
+      </form>
+
+    </div>
+  </div>
+</section>

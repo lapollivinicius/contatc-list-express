@@ -1,0 +1,35 @@
+/* LOGIN SECTION */
+#login_section {
+  width: 100dvw;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -50px;
+}
+.hero_title {
+  font-size: 200px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+}
+.hero_subtitle {
+  font-size: 50px;
+  margin-top: -20px;
+}
+
+/* form */
+.form_login {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 8px;
+  margin: 15px 0px;
+}
+.form_login_label {
+  display: flex;
+  gap: 5px;
+}
+.login_message {
+  color: var(--error);
+}
