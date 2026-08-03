@@ -13,7 +13,7 @@
   --yellow: #ffff00;
   --gray: #808080;
   --red: #ff0000;
-  --error: #ff0000;
+  
 
   --text-color: #ffffff;
   --background-color: #0000ff;
@@ -44,6 +44,7 @@ body::-webkit-scrollbar {
   --text-color: #ffffff;
   --background-color: #0000ff;
   --anchor-color: #ffff00;
+  --error: #ff9900;
 
   color: var(--text-color);
   background-color: var(--background-color);
@@ -53,6 +54,7 @@ body::-webkit-scrollbar {
   --text-color: #ffffff;
   --background-color: #000000;
   --anchor-color: #ffff00;
+  --error: #ff0000;
 
   color: var(--text-color);
   background-color: var(--background-color);
@@ -104,6 +106,12 @@ header {
 .header_title {
   font-size: 50px;
 }
+nav {
+  line-height: 20px;
+  display: flex;
+  items-align: center;
+  gap: 20px;
+}
 nav a {
   color: var(--text-color);
   text-decoration: none;
@@ -152,6 +160,9 @@ input:focus, input:active {
 input:focus::placeholder {
   color: transparent;
 }
+strong {
+  opacity: 50%;
+}
 
 
 /* HUD AND SEARCH CONTAINER */
@@ -199,15 +210,14 @@ input:focus::placeholder {
 .post {
   width: 100%;
 }
+.post-username, .post-head {
+  opacity: 60%;
+}
 .post-content {
   display: flex;
   flex-direction: column;
   align-items: start;
   line-height: 25px;
-}
-
-.post-username {
-  opacity: 50%;
 }
 .post-ads-username {
   color: var(--anchor-color);
@@ -237,6 +247,9 @@ input:focus::placeholder {
   display: flex;
   justify-content: space-between;
 }
+.comment-subject {
+  padding: 0px 0px 0px 5px;
+}
 
 /* reply comments */
 .reply-container {
@@ -248,4 +261,28 @@ input:focus::placeholder {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+/* general */
+
+.loading:after {
+  content: '... ';
+  display: block;
+  color: var(--text-color);
+  animation: dots 500ms infinite;
+}
+
+@keyframes dots {
+  0% {
+    content: '... ';
+  }
+  25% {
+    content: '. ';
+  }
+  50% {
+    content: '.. ';
+  }
+  75% {
+    content: '... ';
+  }
 }

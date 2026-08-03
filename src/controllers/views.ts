@@ -5,9 +5,17 @@ export function homeIndex(req: any, res: Response) {
 }
 
 export function loginIndex(req: any, res: Response) {
-  res.render("login.ejs")
+  const message = req.flash("message")[0] || "";
+
+  res.render("login.ejs", {message})
 }
 
 export function registerIndex(req: any, res: Response) {
-  res.render("register.ejs")
+
+  const message = req.flash("message")[0] || "";
+  const values = req.session.values || {};
+
+  delete req.session.values;
+
+  res.render("register.ejs", { values, message})
 }

@@ -1,43 +1,79 @@
 <section id="login_section">
   <div class="container">
     <div>
-
       <div class="hero">
         <h1 class="hero_title">KOSHO</h1>
         <p class="hero_subtitle">a dev club</p>
       </div>
 
-      <form action="/api/register" class="form_login">
+      <form action="/api/register" class="form_login" method="POST">
         <p>Create an account to see the secrets</p>
+
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
 
         <label for="name" class="form_login_label">
           <p>▶</p>
-          <input type="text" autocomplete="off" spellcheck="false" maxlength="50" placeholder="name">
+          <input
+            type="text"
+            name="name"
+            autocomplete="off"
+            spellcheck="false"
+            maxlength="50"
+            placeholder="name"
+            value="<%= values?.name || '' %>"
+            required
+          />
         </label>
 
         <label for="email" class="form_login_label">
           <p>▶</p>
-          <input type="text" autocomplete="off" spellcheck="false" maxlength="50" placeholder="email">
+          <input
+            type="email"
+            name="email"
+            autocomplete="off"
+            spellcheck="false"
+            maxlength="50"
+            placeholder="email"
+            value="<%= values?.email || '' %>"
+            required
+          />
         </label>
 
         <label for="username" class="form_login_label">
           <p>▶</p>
-          <input type="text" autocomplete="off" spellcheck="false" maxlength="50" placeholder="username">
+          <input
+            type="text"
+            name="username"
+            autocomplete="off"
+            spellcheck="false"
+            maxlength="50"
+            placeholder="username"
+            value="<%= values?.username || '' %>"
+            required
+          />
         </label>
 
         <label for="password" class="form_login_label">
           <p>▶</p>
-          <input type="password" autocomplete="off" spellcheck="false" maxlength="50" placeholder="password">
+          <input
+            type="password"
+            name="password"
+            autocomplete="off"
+            spellcheck="false"
+            maxlength="50"
+            placeholder="password"
+            value="<%= values?.password || '' %>"
+            required
+          />
         </label>
 
-        <p class="login_message"></p>
+        <p class="login_message"><%= message %></p>
 
         <div>
-          <button class="hover">REGISTER</button>
+          <button class="hover" type="submit">REGISTER</button>
           <a href="/login" class="hover">login</a>
         </div>
       </form>
-
     </div>
   </div>
 </section>

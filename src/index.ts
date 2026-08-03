@@ -7,12 +7,14 @@ import dotenv from "dotenv";
 import csrf from "csurf";
 import { checkCSFRError, CRSFMiddleware } from "./middleware/csrf.ts";
 import session from "express-session";
+import flash from "connect-flash";
 
 dotenv.config();
 const databaseURL = process.env.DATABASE_URL!
+const sectionSecret = process.env.SECTION_SECRET!
 
-if (!databaseURL) {
-  throw new Error("Banco de dados não registrado");
+if (!databaseURL || !sectionSecret) {
+  throw new Error("env error");
 }
 
 await mongoose.connect(databaseURL)
@@ -28,9 +30,10 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({extended: true}));
 app.use(express.json())
 
+
 app.use(
   session({
-    secret: "secret",
+    secret: sectionSecret,
     store: MongoStore.create({
       client: mongoose.connection.getClient(),
     }),
@@ -42,6 +45,8 @@ app.use(
     }
   }),
 );
+
+app.use(flash())
 
 app.use(csrf());
 app.use(CRSFMiddleware);

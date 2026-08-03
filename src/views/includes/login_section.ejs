@@ -13,15 +13,15 @@
 
         <label for="username" class="form_login_label">
           <p>▶</p>
-          <input type="text" name="username" autocomplete="off" spellcheck="false" maxlength="50" placeholder="username">
+          <input type="text" name="username" autocomplete="off" spellcheck="false" maxlength="50" placeholder="username" required>
         </label>
 
         <label for="password" class="form_login_label">
           <p>▶</p>
-          <input type="password" name="password" autocomplete="off" spellcheck="false" maxlength="50" placeholder="password">
+          <input type="password" name="password" autocomplete="off" spellcheck="false" maxlength="50" placeholder="password" required>
         </label>
 
-        <p class="login_message"></p>
+        <p class="login_message"><%= message %></p>
 
         <div>
           <button class="hover" type="submit">LOGIN</button>

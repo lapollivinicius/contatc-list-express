@@ -1,6 +1,6 @@
 import express from 'express';
 import { homeIndex, loginIndex, registerIndex } from '../controllers/views.ts';
-import { login } from '../controllers/auth.ts';
+import { login, register } from '../controllers/auth.ts';
 
 const router = express.Router();
 
@@ -9,7 +9,8 @@ router.get('/', homeIndex);
 router.get('/login', loginIndex);
 router.get('/register', registerIndex);
 
-// login
+// auth
 router.post('/api/login', login);
+router.post('/api/register', register);
 
 export default router;
