@@ -30,6 +30,11 @@
   display: flex;
   gap: 5px;
 }
-.login_message {
-  color: var(--error);
+.login_errors {
+  color: var(--text-color);
+  background-color: var(--error);
+}
+.login_sucess {
+  color: var(--text-color);
+  background-color: var(--sucess);
 }

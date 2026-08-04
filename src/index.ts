@@ -8,6 +8,7 @@ import csrf from "csurf";
 import { checkCSFRError, CRSFMiddleware } from "./middleware/csrf.js";
 import session from "express-session";
 import flash from "connect-flash";
+import { globalMiddleware } from './middleware/globals.js';
 
 dotenv.config();
 const databaseURL = process.env.DATABASE_URL!
@@ -50,6 +51,7 @@ app.use(flash())
 
 app.use(csrf());
 app.use(CRSFMiddleware);
+app.use(globalMiddleware)
 app.use(router);
 app.use(checkCSFRError);
 

@@ -18,10 +18,14 @@
 
         <label for="password" class="form_login_label">
           <p>▶</p>
-          <input type="password" name="password" autocomplete="off" spellcheck="false" maxlength="50" placeholder="password" required>
+          <input id="password" type="password" name="password" autocomplete="off" spellcheck="false" maxlength="50" placeholder="password" required>
+          <!-- <button type="button" class="hover" onclick="togglePassword(event)">SEE</button> -->
         </label>
+        <script>
+          
+        </script>
 
-        <p class="login_message"><%= message %></p>
+        <%- include('messages') %>
 
         <div>
           <button class="hover" type="submit">LOGIN</button>

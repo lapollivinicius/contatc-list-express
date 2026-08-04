@@ -5,9 +5,7 @@ export function homeIndex(req: any, res: Response) {
 }
 
 export function loginIndex(req: any, res: Response) {
-  const message = req.flash("message")[0] || "";
-
-  res.render("login.ejs", {message})
+  res.render("login.ejs")
 }
 
 export function registerIndex(req: any, res: Response) {
