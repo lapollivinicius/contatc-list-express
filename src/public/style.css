@@ -40,7 +40,7 @@ body::-webkit-scrollbar {
 /* UTIL CLASSES */ 
 
 
-.light {
+html.light, body.light {
   --text-color: #ffffff;
   --background-color: #0000ff;
   --anchor-color: #ffff00;
@@ -50,7 +50,7 @@ body::-webkit-scrollbar {
   background-color: var(--background-color);
 }
 
-.dark {
+html.dark, body.dark {
   --text-color: #ffffff;
   --background-color: #000000;
   --anchor-color: #ffff00;
@@ -58,6 +58,10 @@ body::-webkit-scrollbar {
 
   color: var(--text-color);
   background-color: var(--background-color);
+}
+
+body, header, footer, button, a, input {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .hover:hover {
@@ -92,11 +96,14 @@ header {
   justify-content: center;
   align-items: center;
   text-align: center;
+  background-color: var(--background-color);
 }
 .header_wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 .header_content {
   text-align: left;
@@ -109,7 +116,7 @@ header {
 nav {
   line-height: 20px;
   display: flex;
-  items-align: center;
+  align-items: center;
   gap: 20px;
 }
 nav a {
@@ -133,8 +140,9 @@ footer {
 .footer_wrapper {
   display: flex;
   justify-content: space-between;
+  gap: 5px;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 20px;
   text-align: left;
 }
 
@@ -228,11 +236,19 @@ strong {
 }
 .comment-container.active {
   display: flex;
+  opacity: 1;
+
+  @starting-style {
+    opacity: 0;
+  }
 }
 .comment-container {
   display: none;
   flex-direction: column;
+  opacity: 0;
+  transition: opacity 0.3s, display 0.3s allow-discrete;
 }
+
 .comment-symbol {
   font-size: 35px;
   font-weight: 100;
@@ -246,6 +262,7 @@ strong {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  line-height: 25px;
 }
 .comment-subject {
   padding: 0px 0px 0px 5px;

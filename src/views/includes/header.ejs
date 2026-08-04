@@ -12,6 +12,7 @@
         <a href="/account" class="hover">ACCOUNT</a>
         <a href="/add" class="hover">ADD-POST</a> 
         <form action="/api/logout" method="POST">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
           <button class="hover">LOGOUT</button> 
         </form>
       </nav>

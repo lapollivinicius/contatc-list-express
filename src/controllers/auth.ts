@@ -1,5 +1,5 @@
 import {type Response} from "express"
-import { registerValidator } from "../validators/register.ts"
+import { registerValidator } from "../validators/register.js"
 
 
 export function register(req: any, res: Response) {
