@@ -1,4 +1,4 @@
-import {type Response} from "express"
+import {type Response, type Request} from "express"
 import { loginValidator, registerValidator } from "../validators/register.js"
 import { createUser, getUser } from "../repository/db.js";
 import bcrypt from "bcrypt";
@@ -53,7 +53,7 @@ export async function login(req: any, res: Response) {
     return
   }
 
-   const response = await getUser(body.username);
+  const response = await getUser(body.username);
 
   if (!response.success || !response.user) {
     req.flash("errors", response.error);
@@ -78,15 +78,21 @@ export async function login(req: any, res: Response) {
     });
   }
 
-  // auth jwt - cookie and section
+  req.session.userId = currentUser._id.toString();
 
   res.redirect("/")
 }
 
-export function logout(req: any, res: Response) {
+export function logout(req: Request, res: Response) {
 
-  // destroy session
+  req.session.destroy((err) => {
+    
+    if (err) {
+      return res.redirect("/");
+    }
 
-  res.redirect("/login")
+    res.clearCookie("connect.sid");
+    return res.redirect("/login");
+  });
 
 }

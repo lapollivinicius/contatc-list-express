@@ -1,4 +1,4 @@
-import { isRequired, isString, hasLength, isEmail, isUsername, isPasswordStrong} from "./validator.js";
+import { isRequired, isString, hasLength, isEmail, isUsernameValid, isPasswordStrong} from "./validator.js";
 
 export function registerValidator(body: any) {
 
@@ -25,7 +25,7 @@ export function registerValidator(body: any) {
 
     if (key === "username" && !hasLength(value, 5, 50)) {
       return {success: false, message: `The field ${key} must have between 5 and 50 characters.`};
-    } else if (key === "username" && !isUsername(value)) {
+    } else if (key === "username" && !isUsernameValid(value)) {
       return {success: false, message: `The field ${key} must be a valid username (letters, numbers, and underscores only).`};
     }
 
@@ -50,7 +50,7 @@ export function loginValidator(body: any) {
 
     if (key === "username" && !hasLength(value, 5, 50)) {
       return {success: false, message: `The value in field ${key} is invalid.`};
-    } else if (key === "username" && !isUsername(value)) {
+    } else if (key === "username" && !isUsernameValid(value)) {
       return {success: false, message: `The value in field ${key} is invalid.`};
     }
 

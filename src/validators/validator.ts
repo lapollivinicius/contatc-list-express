@@ -16,7 +16,7 @@ export function isEmail(value: string): boolean {
   return regex.test(value);
 }
 
-export function isUsername(value: string): boolean {
+export function isUsernameValid(value: string): boolean {
   const regex = /^[a-zA-Z0-9_]+$/;
   return regex.test(value);
 }
